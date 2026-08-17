@@ -32,3 +32,11 @@ nutrition-coach/
 ├── .env
 ├── .gitignore
 └── README.md
+## Streamlit Web Interface
+
+NutriBuddy also includes a basic Streamlit-based user interface.
+
+To run the web application:
+
+```bash
+streamlit run app.py
