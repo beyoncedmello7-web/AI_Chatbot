@@ -6,9 +6,18 @@ from google import genai
 # Load environment variables
 load_dotenv()
 
-# Get API key
 api_key = os.getenv("GEMINI_API_KEY")
 
+# For Streamlit Cloud
+if not api_key:
+    try:
+        api_key = st.secrets["GEMINI_API_KEY"]
+    except Exception:
+        api_key = None
+
+if not api_key:
+    st.error("GEMINI_API_KEY not found. Please check Streamlit Secrets.")
+    st.stop()
 # Page configuration
 st.set_page_config(
     page_title="NutriBuddy - AI Nutrition Coach",
